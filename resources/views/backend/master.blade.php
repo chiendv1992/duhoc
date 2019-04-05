@@ -12,7 +12,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Bảng Điều Khiển
+                Bảng Điều Khiển ssssssssss
                 <small>Du học</small>
             </h1>
             <ol class="breadcrumb">
