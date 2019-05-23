@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTheloaiTable extends Migration
+class CreateNewTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,15 @@ class CreateTheloaiTable extends Migration
      */
     public function up()
     {
-        Schema::create('theloai', function (Blueprint $table) {
+        Schema::create('new', function (Blueprint $table) {
             $table->increments('id');
-            $table->int('dm_id');
-            $table->string('name');
+            $table->integer('cate_id')->unsigned();
             $table->string('title');
+            $table->string('slug');
+            $table->text('content');
+            $table->string('image');
             $table->string('status');
+            $table->string('type');
             $table->timestamps();
         });
     }
@@ -30,6 +33,6 @@ class CreateTheloaiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('theloai');
+        Schema::dropIfExists('new');
     }
 }

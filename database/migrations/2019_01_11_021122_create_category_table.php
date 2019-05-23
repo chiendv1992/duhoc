@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTintucTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateTintucTable extends Migration
      */
     public function up()
     {
-        Schema::create('tintuc', function (Blueprint $table) {
-            $table->increments('id');
-            $table->increments('tl_id');
+        Schema::create('category', function (Blueprint $table) {
+            $table->increments('id');            
+            $table->string('parent_id');
             $table->string('title');
-            $table->string('slug');
-            $table->text('content');
-            $table->string('image');
+            $table->string('name');
             $table->string('status');
             $table->timestamps();
         });
@@ -32,6 +30,6 @@ class CreateTintucTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tintuc');
+        Schema::dropIfExists('category');
     }
 }

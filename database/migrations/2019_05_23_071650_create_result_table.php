@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLophocTable extends Migration
+class CreateResultTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateLophocTable extends Migration
      */
     public function up()
     {
-        Schema::create('lophoc', function (Blueprint $table) {
-            $table->increments('id');
-            $table->increments('khoa_id');
+        Schema::create('result', function (Blueprint $table) {
+            $table->increments('id');            
+            $table->integer('customer_id')->unsigned();
             $table->string('name');
-            $table->string('khoa');
             $table->string('status');
             $table->timestamps();
         });
@@ -30,6 +29,6 @@ class CreateLophocTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lophoc');
+        Schema::dropIfExists('result');
     }
 }
