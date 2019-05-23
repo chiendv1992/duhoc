@@ -1,9 +1,9 @@
 @extends('backend.master')
 @section('title')
-    Bảng Điều Khiển
+    {{__('Bảng Điều Khiển')}}
 @endsection
 @section('brecrum')
-    Bảng điều khien
+    {{__('Bảng Điều Khiển')}}
 @endsection
 @section('content')
     <section class="content">
