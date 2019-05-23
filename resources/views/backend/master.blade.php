@@ -16,16 +16,10 @@
     <link rel="stylesheet" href="{{asset('backend/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/AdminLTE.min.css')}}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-         folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{asset('backend/dist/css/skins/_all-skins.min.css')}}">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+  <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('backend/plugins/datatables/dataTables.bootstrap.css')}}">
+  
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -41,8 +35,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                {{__('Bảng Điều Khiển')}}
-                <small>Du học</small>
+                {{__('Quản Trị')}}
+                <small>WEB</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="#"><i class="fa fa-dashboard"></i>{{__('Quản Trị')}}</a></li>
@@ -73,11 +67,30 @@
 <script src="{{asset('backend/plugins/slimScroll/jquery.slimscroll.min.js')}}"></script>
 <!-- ChartJS 1.0.1 -->
 <script src="{{asset('backend/plugins/chartjs/Chart.min.js')}}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{asset('backend/dist/js/pages/dashboard2.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('backend/dist/js/demo.js')}}"></script>
 
+<!-- DataTables -->
+<script src="{{asset('backend/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('backend/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
+
+<!-- page script -->
+<script>
+  $(function () {
+    $("#example1").DataTable();
+    $('#example2').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false
+    });
+  });
+</script>
+
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset('backend/dist/js/pages/dashboard2.js')}}"></script>
 
 </body>
 </html>

@@ -69,7 +69,7 @@
             
             <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>{{__('Quản Lý Banner')}}</span></a></li>
 
-            <li class="header">LABELS</li>
+            <li class="header">{{__('Khác')}}</li>
             <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>{{__('Hướng Dẫn')}}</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>{{__('Cảnh Báo')}}</span></a></li>
             <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>{{__('Thông Tin')}}</span></a></li>
