@@ -17,7 +17,7 @@ class CreateClassTable extends Migration
             $table->increments('id');
             $table->integer('couse_id')->unsigned();
             $table->string('name');
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

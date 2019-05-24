@@ -20,8 +20,8 @@ class CreateNewTable extends Migration
             $table->string('slug');
             $table->text('content');
             $table->string('image');
-            $table->string('status');
-            $table->string('type');
+            $table->integer('status');
+            $table->integer('type');
             $table->timestamps();
         });
     }

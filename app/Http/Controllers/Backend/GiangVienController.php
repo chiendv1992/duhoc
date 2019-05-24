@@ -4,18 +4,21 @@ namespace App\Http\Controllers\Backend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
-
+use App\Repositories\GiangVien\GiangVienRepository;
 class GiangVienController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // giảng viên
+    const TYPE_TEACHER = 1;
+
+    public function __construct(GiangVienRepository $teacher)
+    {
+        $this->teacher = $teacher;
+    }
+
     public function index()
     {
-        $giangvien = Customer::where('type', '=', 1)->get();
+        $giangvien = $this->teacher->getAll(self::TYPE_TEACHER);
+
         return view('backend.giangvien.index',[
             'giangvien' => $giangvien
         ]);
@@ -28,7 +31,7 @@ class GiangVienController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.giangvien.add');
     }
 
     /**

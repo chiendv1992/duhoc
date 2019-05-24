@@ -7,180 +7,60 @@
 @endsection
 @section('content')
     <section class="content"> 
-
         <!-- Main row -->
         <div class="row">
             <!-- Left col -->
-            <div class="col-md-8">
-            	<div class="box">
-            <div class="box-header">
-              <h3 class="box-title">{{__('Danh Sách Giảng Viên')}}</h3>
-            </div>
+            <div class="col-xs-12 col-sm-12col-md-12 col-lg-12">
+            	<div class="box box-primary">
+		            <div class="box-header">
+		            	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+		            		<h3 class="box-title">{{__('Danh Sách Giảng Viên')}}</h3>
+		            	</div>
+		            	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		            		<a href="{{route('backend.giangvien.create')}}" class="btn btn-danger">{{__('Thêm Giảng Viên')}}</a>
+		            	</div>
+		            </div>
             <!-- /.box-header -->
-            <div class="box-body">
-            	<table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                	<th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 5.5
-                  </td>
-                  <td>Win 95+</td>
-                  <td>5.5</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 6
-                  </td>
-                  <td>Win 98+</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet Explorer 7</td>
-                  <td>Win XP SP2+</td>
-                  <td>7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>AOL browser (AOL desktop)</td>
-                  <td>Win XP</td>
-                  <td>6</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.7</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
-                </tr>
-                </tfoot>
-              </table>
+		            <div class="box-body">
+		            	<table id="example1" class="table table-bordered table-striped">
+		                <thead>
+		                <tr>
+		                	<th>{{__('STT')}}</th>                	
+		                	<th>{{__('Mã GV')}}</th>
+		                	<th>{{__('Tên Giảng Viên')}}</th>
+		                	<th>{{__('Avatar')}}</th>
+		                	<th>{{__('Ngày Sinh')}}</th>
+		                	<th>{{__('Địa Chỉ')}}</th>
+		                	<th>{{__('SDT')}}</th>
+		                	<th>{{__('CMTND')}}</th>
+		                	<th>{{__('Sửa')}}</th>
+		                	<th>{{__('Xóa')}}</th>
+		                	<th>{{__('Xem')}}</th>
+		                </tr>
+		                </thead>
+		                <tbody>
+		                	@foreach($giangvien as $teacher)
+				                <tr>
+				                  <td>{{$teacher['id']}}</td>
+				                  <td>{{$teacher['code']}}</td>		                  
+				                  <td>{{$teacher['fullname']}}</td>
+				                  <td>{{$teacher['image']}}</td>
+				                  <td>{{$teacher['birthday']}}</td>
+				                  <td>{{$teacher['address']}}</td>
+				                  <td>{{$teacher['phone']}}</td>
+				                  <td>{{$teacher['cmtnd']}}</td>
+				                  <td><a href="">{{__('Sửa')}}</a></td>
+				                  <td><a href="">{{__('Xóa')}}</td>
+				                  <td><a href="">{{__('Xem Chi tiết')}}</td>
+				                </tr>
+				            @endforeach
+		                </tfoot>
+		              </table>
+		            </div>
+		            <!-- /.box-body -->
+		        </div>
             </div>
-            <!-- /.box-body -->
-          </div>
-            </div>
-            <!-- /.col -->
-
-            <div class="col-md-4">
-                <!-- Info Boxes Style 2 -->
-                <div class="info-box bg-yellow">
-                    <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Inventory</span>
-                        <span class="info-box-number">5,200</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 50%"></div>
-                        </div>
-                        <span class="progress-description">
-                50% Increase in 30 Days
-              </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-                <div class="info-box bg-green">
-                    <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Mentions</span>
-                        <span class="info-box-number">92,050</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 20%"></div>
-                        </div>
-                        <span class="progress-description">
-                20% Increase in 30 Days
-              </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-                <div class="info-box bg-red">
-                    <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Downloads</span>
-                        <span class="info-box-number">114,381</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 70%"></div>
-                        </div>
-                        <span class="progress-description">
-                70% Increase in 30 Days
-              </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div>
-                <!-- /.info-box -->
-                <div class="info-box bg-aqua">
-                    <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">Direct Messages</span>
-                        <span class="info-box-number">163,921</span>
-
-                        <div class="progress">
-                            <div class="progress-bar" style="width: 40%"></div>
-                        </div>
-                        <span class="progress-description">
-                40% Increase in 30 Days
-              </span>
-                    </div>
-                    <!-- /.info-box-content -->
-                </div> 
-            </div>
-            <!-- /.col -->
+            <!-- /.col -->           
         </div>
         <!-- /.row -->
     </section>

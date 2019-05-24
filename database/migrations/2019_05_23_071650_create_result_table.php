@@ -17,7 +17,7 @@ class CreateResultTable extends Migration
             $table->increments('id');            
             $table->integer('customer_id')->unsigned();
             $table->string('name');
-            $table->string('status');
+            $table->integer('status');
             $table->timestamps();
         });
     }

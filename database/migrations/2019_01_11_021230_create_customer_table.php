@@ -20,12 +20,12 @@ class CreateCustomerTable extends Migration
             $table->string('pass');
             $table->string('fullname');            
             $table->string('image');
-            $table->string('birthday');
+            $table->datetime('birthday');
             $table->string('address');
-            $table->string('phone');
-            $table->string('cmtnd');
-            $table->string('type');
-            $table->string('status');
+            $table->integer('phone');
+            $table->integer('cmtnd');
+            $table->integer('type');
+            $table->integer('status');
             $table->timestamps();
         });
     }
