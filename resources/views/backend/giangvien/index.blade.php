@@ -12,15 +12,22 @@
             <!-- Left col -->
             <div class="col-xs-12 col-sm-12col-md-12 col-lg-12">
             	<div class="box box-primary">
-		            <div class="box-header">
-		            	<div class="col-xs-11 col-sm-11 col-md-11 col-lg-11">
+		            <div class="box-header col-xs-12 col-sm-12col-md-12 col-lg-12 ">
+		            	<div class="col-xs-8 col-sm-6 col-md-10 col-lg-10">
 		            		<h3 class="box-title">{{__('Danh Sách Giảng Viên')}}</h3>
 		            	</div>
-		            	<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+		            	<div class="col-xs-4 col-sm-6 col-md-2 col-lg-2">
 		            		<a href="{{route('backend.giangvien.create')}}" class="btn btn-danger">{{__('Thêm Giảng Viên')}}</a>
 		            	</div>
 		            </div>
-            <!-- /.box-header -->
+                    <div class="box-header col-xs-12 col-sm-12col-md-12 col-lg-12 ">
+                        @if(session('success'))
+                            <div class="alert alert-success">
+                                {{session('success')}}
+                            </div>
+                        @endif
+                    </div>
+                <!-- /.box-header -->
 		            <div class="box-body">
 		            	<table id="example1" class="table table-bordered table-striped">
 		                <thead>
@@ -50,11 +57,11 @@
 				                  <td>{{$teacher['phone']}}</td>
 				                  <td>{{$teacher['cmtnd']}}</td>
 				                  <td><a href="">{{__('Sửa')}}</a></td>
-				                  <td><a href="">{{__('Xóa')}}</td>
-				                  <td><a href="">{{__('Xem Chi tiết')}}</td>
+                                  <td><a href="">{{__('Xóa')}}</a></td>
+                                  <td><a href="">{{__('Xem Chi tiết')}}</a></td>
 				                </tr>
 				            @endforeach
-		                </tfoot>
+		                </tbody>
 		              </table>
 		            </div>
 		            <!-- /.box-body -->

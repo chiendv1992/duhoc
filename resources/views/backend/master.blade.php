@@ -183,6 +183,7 @@
     </script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('backend/dist/js/pages/dashboard2.js')}}"></script>
+<script src="{{asset('backend/js/mycrip.js')}}"></script>
 
 </body>
 </html>

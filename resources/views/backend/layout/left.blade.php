@@ -25,13 +25,20 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MAIN MENU</li>
-            <li class="active treeview">
-                <a href="#">
+            <li class="{{ url()->current()== route('backend.dashboard.list')?'active':''}} treeview">
+                <a href="{{route('backend.dashboard.list')}}">
                     <i class="fa fa-dashboard"></i> 
                     <span>{{__('Bảng Quản Trị')}}</span>
                 </a>                
             </li>
-            <li class="treeview">
+            <li class="
+                {{
+                    url()->current()== route('backend.giangvien.list')||
+                    url()->current()== route('backend.giangvien.create')
+                    ?'active':''
+                }}
+                treeview"
+            >
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>{{__('Quản Lý Nội Bộ')}}</span>
@@ -40,19 +47,19 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
+                    <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Khóa Học')}}</a></li>
+                    <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Lớp Học')}}</a></li>
                     <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Giảng Viên')}}</a></li>
-                    <li><a href="pages/layout/boxed.html"><i class="fa fa-circle-o"></i> {{__('Học Viên')}}</a></li>
-                    <li><a href="pages/layout/fixed.html"><i class="fa fa-circle-o"></i> {{__('Khóa Học')}}</a></li>
-                    <li><a href="pages/layout/collapsed-sidebar.html"><i class="fa fa-circle-o"></i> {{__('Lớp Học')}}</a></li>
+                    <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Học Viên')}}</a></li>
                 </ul>
             </li>
             <li>
-                <a href="pages/widgets.html">
+                <a href="{{route('backend.giangvien.list')}}">
                     <i class="fa fa-th"></i> <span>{{__('Quản Lý Điểm')}}</span>
                 </a>
             </li>            
             <li>
-                <a href="pages/mailbox/mailbox.html">
+                <a href="{{route('backend.giangvien.list')}}">
                     <i class="fa fa-envelope"></i> <span>Mailbox</span>
                     <span class="pull-right-container">
               <small class="label pull-right bg-yellow">12</small>
@@ -62,17 +69,17 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="#">
+                <a href="{{route('backend.giangvien.list')}}">
                     <i class="fa fa-folder"></i> <span>{{__('Quản Lý Tin Tức')}}</span></i>
                 </a>
             </li>            
             
-            <li><a href="documentation/index.html"><i class="fa fa-book"></i> <span>{{__('Quản Lý Banner')}}</span></a></li>
+            <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-book"></i> <span>{{__('Quản Lý Banner')}}</span></a></li>
 
             <li class="header">{{__('Khác')}}</li>
-            <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>{{__('Hướng Dẫn')}}</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>{{__('Cảnh Báo')}}</span></a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>{{__('Thông Tin')}}</span></a></li>
+            <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o text-red"></i> <span>{{__('Hướng Dẫn')}}</span></a></li>
+            <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o text-yellow"></i> <span>{{__('Cảnh Báo')}}</span></a></li>
+            <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o text-aqua"></i> <span>{{__('Thông Tin')}}</span></a></li>
         </ul>
     </section>
     <!-- /.sidebar -->
