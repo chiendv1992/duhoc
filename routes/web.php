@@ -40,3 +40,4 @@ Route::get('/', function () {
 
         Route::get('delete/{id}',['as'=>'backend.giangvien.destroy','uses'=>'Backend\GiangVienController@destroy']);
     });
+

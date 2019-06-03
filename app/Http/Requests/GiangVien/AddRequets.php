@@ -24,9 +24,10 @@ class AddRequets extends FormRequest
     public function rules()
     {
         return [
+            'lop' => 'required',
             'code' => 'required|unique:customer',
             'name' => 'required',
-            'ngaysinh' => 'required',
+            'birthday' => 'required',
             'address' => 'required',
             'phone' => 'required|numeric',
             'cmtnd' => 'required',
@@ -35,10 +36,11 @@ class AddRequets extends FormRequest
     public function messages()
     {
         return [
+            'lop.required' => 'Bạn chưa chọn lớp',
             'code.required' => 'Bạn chưa nhập mã',
             'code.unique' => 'Mã đã tồn tại',
             'name.required' => 'Bạn chưa nhập Họ Tên',
-            'ngaysinh.required' => 'Bạn chưa nhập Ngày sinh',
+            'birthday.required' => 'Bạn chưa nhập Ngày sinh',
             'address.required' => 'Bạn chưa nhập địa chỉ',
             'phone.required' => 'Bạn chưa nhập số điện thoại',
             'phone.numeric' => 'Bạn chỉ được nhập số 0-9',
