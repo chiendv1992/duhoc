@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class ClassController extends Controller
+class LopController extends Controller
 {
     /**
      * Display a listing of the resource.

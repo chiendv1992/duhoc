@@ -47,8 +47,8 @@
                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Khóa Học')}}</a></li>
-                    <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Lớp Học')}}</a></li>
+                    <li><a href="{{route('backend.course.list')}}"><i class="fa fa-circle-o"></i> {{__('Khóa Học')}}</a></li>
+                    <li><a href="{{route('backend.lop.list')}}"><i class="fa fa-circle-o"></i> {{__('Lớp Học')}}</a></li>
                     <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Giảng Viên')}}</a></li>
                     <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-circle-o"></i> {{__('Học Viên')}}</a></li>
                 </ul>

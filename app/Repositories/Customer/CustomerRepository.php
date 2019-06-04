@@ -83,6 +83,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
         $customer->status = 1;
         $customer->birthday = $data->birthday;
         $customer->type = self::TYPE_TEACHER;
+
         $customer->save();
    	}
 

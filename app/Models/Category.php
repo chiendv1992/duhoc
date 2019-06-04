@@ -10,8 +10,8 @@ class Category extends Model
 	protected $primaryKey = 'id';
 	protected $fillable = ['id','name','status','created_at','updated_at'];
 	public $timestamps = false; 
-	public function new()
+	public function news()
 	{
-		return $this->hasMany('App\Models\New','id');
+		return $this->hasMany('App\Models\News','id');
 	}
 }

@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Repositories\Course\CourseRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
+    private $course;
+
+    public function __construct(CourseRepository $course)
+    {
+        $this->course = $course;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,10 @@ class CourseController extends Controller
      */
     public function index()
     {
-        //
+        dd('12');
+//        $courses = $this->course->getAll();
+//        dd($courses);
+//        return view('backend.course.index',compact('courses'));
     }
 
     /**
