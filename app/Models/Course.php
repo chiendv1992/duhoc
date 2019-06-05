@@ -10,6 +10,7 @@ class Course extends Model
     protected $primaryKey = 'id';
     protected $fillable = ['id','name','status'];
     public $timestamps = false;
+
     public function lop()
     {
         return $this->hasMany('App\Models\Lop','id');

@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Repositories\Course\CourseRepository;
+use App\Repositories\Course\CourseRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Course\AddRequest;
+use App\Http\Requests\Course\EditRequest;
 
 class CourseController extends Controller
 {
-    private $course;
+    private $courseRepository;
 
-    public function __construct(CourseRepository $course)
+    public function __construct(CourseRepositoryInterface $courseRepository)
     {
-        $this->course = $course;
+        $this->courseRepository = $courseRepository;
     }
 
     /**
@@ -22,10 +25,8 @@ class CourseController extends Controller
      */
     public function index()
     {
-        dd('12');
-//        $courses = $this->course->getAll();
-//        dd($courses);
-//        return view('backend.course.index',compact('courses'));
+        $courses = $this->courseRepository->getAll();
+        return view('backend.course.index',compact('courses'));
     }
 
     /**
@@ -35,7 +36,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.course.add');
     }
 
     /**
@@ -44,20 +45,10 @@ class CourseController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $this->courseRepository->save($request);
+        return redirect()->route('backend.course.list')->with("success", "Thêm mới thành công!");
     }
 
     /**
@@ -68,7 +59,9 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courseId = $this->courseRepository->findId($id);
+//        dd($courseId);
+        return view('backend.course.edit',compact('courseId'));
     }
 
     /**
@@ -78,9 +71,11 @@ class CourseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditRequest $request, $id)
     {
-        //
+//        dd($request);
+        $this->courseRepository->update($request, $id);
+        return redirect()->route('backend.course.list')->with("success", "Sửa mới thành công!");
     }
 
     /**
@@ -91,6 +86,7 @@ class CourseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->courseRepository->delete($id);
+        return redirect()->route('backend.course.list')->with("success", "Xóa thành công!");
     }
 }

@@ -6,7 +6,9 @@ use App\Http\Requests\GiangVien\EditRequets;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Customer\CustomerRepository;
+use App\Repositories\Customer\CustomerRepositoryInterface;
 use App\Http\Requests\GiangVien\AddRequets;
+
 
 class GiangVienController extends Controller
 {
@@ -109,6 +111,8 @@ class GiangVienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->teacher->deleteCustomer($id);
+        return redirect()->route('backend.giangvien.list')->with("success", "Xóa giảng viên thành công!");
+
     }
 }

@@ -11,7 +11,5 @@ interface CustomerRepositoryInterface
 
    public function findId($id);
 
-   public function saveCustomer();
-
-   public function deleteCustomer();
+   public function deleteCustomer($id);
 }

@@ -11,12 +11,11 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     const TYPE_TEACHER = 1;
     const TYPE_HOCVIEN = 0;
     const PATH_IMAGE_GIANGVIEN = 'backend/upload/giangvien';
-    protected $customer;
 
-    public function __construct()
-    {
-        $this->customer = new Customer();
-        parent::__construct($this->customer);
+    protected $model;
+
+    public function __construct(Customer $model){
+        parent::__construct($model);
     }
 
     /**
@@ -25,7 +24,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
      * get data  customer
      */
     public function getAll($value){
-    	return $tearch = $this->customer->where('type','=', $value)->get();
+    	return $tearch = Customer::where('type','=', $value)->get();
     }
 
     /**
@@ -71,7 +70,6 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
             $file_name = $data->input('img_curr');
         }
 
-        $customer = new Customer();
         $customer->class_id = 1;
         $customer->pass = 1;
         $customer->fullname = $data->name;
@@ -93,11 +91,9 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
 
    	}
 
-   	public function saveCustomer(){
 
-   	}
-
-   	public function deleteCustomer(){
-
+   	public function deleteCustomer($id){
+        $customer = Customer::find($id);
+        $customer->delete();
    	}
 }

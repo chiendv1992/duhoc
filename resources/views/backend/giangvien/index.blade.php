@@ -66,8 +66,8 @@
                                     <td>{{$teacher['cmtnd']}}</td>
                                     <td><a href="{{route('backend.giangvien.edit',$teacher['id'])}}">{{__('Sửa')}}</a>
                                     </td>
-                                    <td><a href="">{{__('Xóa')}}</a></td>
-                                    <td><a href="">{{__('Xem Chi tiết')}}</a></td>
+                                    <td><a href="{{route('backend.giangvien.destroy',$teacher['id'])}}" onclick="xacnhanxoa()">{{__('Xóa')}}</a></td>
+                                    <td><a href="{{route('backend.giangvien.edit',$teacher['id'])}}">{{__('Xem Chi tiết')}}</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

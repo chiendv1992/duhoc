@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Repositories\Lop\LopRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class LopController extends Controller
 {
+    private $lopRepository;
+
+    public function __construct(LopRepository $lopRepository)
+    {
+        $this->lopRepository = $lopRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class LopController extends Controller
      */
     public function index()
     {
-        //
+        $lops = $this->lopRepository->getAll();
+        return view('backend.lop.index', compact('lops'));
     }
 
     /**
@@ -30,7 +39,7 @@ class LopController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,7 +50,7 @@ class LopController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -52,7 +61,7 @@ class LopController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -63,8 +72,8 @@ class LopController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -75,7 +84,7 @@ class LopController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
