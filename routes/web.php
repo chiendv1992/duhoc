@@ -60,4 +60,16 @@ Route::group(['prefix' => 'giangvien'], function () {
 
     Route::get('delete/{id}', ['as' => 'backend.giangvien.destroy', 'uses' => 'Backend\GiangVienController@destroy']);
 });
+Route::group(['prefix' => 'category'], function () {
+    Route::get('index', ['as' => 'backend.category.list', 'uses' => 'Backend\GiangVienController@index']);
+
+    Route::get('create', ['as' => 'backend.category.create', 'uses' => 'Backend\GiangVienController@create']);
+    Route::post('create', ['as' => 'backend.category.store', 'uses' => 'Backend\GiangVienController@store']);
+
+    Route::get('edit/{id}', ['as' => 'backend.category.edit', 'uses' => 'Backend\GiangVienController@edit']);
+    Route::post('edit/{id}', ['as' => 'backend.category.update', 'uses' => 'Backend\GiangVienController@update']);
+
+    Route::get('delete/{id}', ['as' => 'backend.category.destroy', 'uses' => 'Backend\GiangVienController@destroy']);
+});
+
 
