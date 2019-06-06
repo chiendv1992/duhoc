@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="70383f5f-da04-45b8-be74-15b4d8ef2c17" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/app/Http/Requests/Category/AddRequest.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/Http/Requests/Category/EditRequest.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app/Repositories/Category/CategoryRepository.php" afterDir="false" />
@@ -9,6 +10,9 @@
       <change afterPath="$PROJECT_DIR$/resources/views/backend/category/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+>>>>>>> quanlynoibo
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,8 +42,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state relative-caret-position="807">
               <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
+=======
+            <state relative-caret-position="901">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
+>>>>>>> quanlynoibo
               <folding>
                 <element signature="e#7#389#0#PHP" expanded="true" />
               </folding>
@@ -47,6 +56,7 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/backend/category/index.blade.php">
           <provider selected="true" editor-type-id="text-editor" />
@@ -79,11 +89,22 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+=======
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Repositories/Course/CourseRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="714">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+              <folding>
+                <element signature="e#42#64#0#PHP" expanded="true" />
+              </folding>
+>>>>>>> quanlynoibo
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Repositories/Category/CategoryRepository.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
@@ -100,6 +121,12 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+=======
+        <entry file="file://$PROJECT_DIR$/app/Repositories/Course/CourseRepositoryInterface.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" selection-start-line="12" selection-end-line="12" />
+>>>>>>> quanlynoibo
             </state>
           </provider>
         </entry>
@@ -133,7 +160,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="phanquyen" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -333,6 +360,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
             </path>
             <path>
               <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
@@ -368,17 +396,59 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Repositories" type="462c0819:PsiDirectoryNode" />
               <item name="Course" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> quanlynoibo
+            </path>
+            <path>
+              <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+=======
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="Backend" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Http" type="462c0819:PsiDirectoryNode" />
+              <item name="Requests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
+              <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="Repositories" type="462c0819:PsiDirectoryNode" />
+              <item name="Course" type="462c0819:PsiDirectoryNode" />
+>>>>>>> quanlynoibo
             </path>
             <path>
               <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
               <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> quanlynoibo
             </path>
             <path>
               <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
               <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
+              <item name="backend" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> quanlynoibo
             </path>
             <path>
               <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
@@ -386,14 +456,10 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="webduhoc" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="views" type="462c0819:PsiDirectoryNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
+<<<<<<< HEAD
               <item name="category" type="462c0819:PsiDirectoryNode" />
+=======
+>>>>>>> quanlynoibo
             </path>
             <path>
               <item name="webduhoc" type="b2602c69:ProjectViewProjectNode" />
@@ -461,13 +527,17 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="93090000" />
+=======
+    <option name="totallyTimeSpent" value="93096000" />
+>>>>>>> quanlynoibo
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17377399" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17537314" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -814,14 +884,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="807">
           <caret line="71" column="56" selection-start-line="71" selection-start-column="56" selection-end-line="71" selection-end-column="56" />
+=======
+        <state relative-caret-position="901">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+>>>>>>> quanlynoibo
           <folding>
             <element signature="e#7#389#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/resources/views/backend/category/index.blade.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -859,6 +935,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="39" lean-forward="true" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+=======
+    <entry file="file://$PROJECT_DIR$/resources/views/backend/category/index.blade.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Category/AddRequest.php" />
+    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Category/EditRequest.php" />
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Category/CategoryRepository.php" />
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Category/CategoryRepositoryInterface.php" />
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Course/CourseRepositoryInterface.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Repositories/Course/CourseRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+>>>>>>> quanlynoibo
           <folding>
             <element signature="e#42#64#0#PHP" expanded="true" />
           </folding>
