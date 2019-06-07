@@ -26,7 +26,14 @@
                             <select name="lop" class="form-control">
                                 <option value="">--- {{__('Chọn Lớp')}} --</option>
                                 @foreach($lops as $lop)
-                                    <option value="{{$lop['id']}}">{{$lop['name']}}</option>
+                                    <option
+                                        value="{{$lop['id']}}"
+                                        @if (old('lop') == $lop['id'])
+                                            {{ 'selected' }}
+                                         @endif
+                                    >
+                                        {{$lop['name']}}
+                                    </option>
                                 @endforeach
                             </select>
                             @if($errors->has('lop'))

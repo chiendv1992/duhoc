@@ -7,11 +7,9 @@ interface LopRepositoryInterface
 
     public function save($data);
 
-    public function updateCustomer($data, $id);
+    public function update($data, $id);
 
     public function findId($id);
 
-    public function saveCustomer();
-
-    public function deleteCustomer();
+    public function delete($id);
 }

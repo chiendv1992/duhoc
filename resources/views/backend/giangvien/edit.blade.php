@@ -25,18 +25,23 @@
                             <label>{{__('Lớp')}}:</label>
                             <select name="lop" class="form-control">
                                 <option value="">--- {{__('Chọn Lớp')}} --</option>
-                                {{--                                @foreach($lops as $lop)--}}
-                                {{--                                    <option value="{{$lop['id']}}">{{$lop['name']}}</option>--}}
-                                {{--                                @endforeach--}}
+                                @foreach($lops as $lop)
+                                    <option value="{{$lop['id']}}"
+                                        @if ($giangvienId['class_id'] == $lop['id'])
+                                            {{ 'selected' }}
+                                        @endif>
+                                        {{$lop['name']}}
+                                    </option>
+                                @endforeach
                             </select>
-                            {{--                            @if($errors->has('lop'))--}}
-                            {{--                                <p style="color: red"> {{$errors->first('lop')}} </p>--}}
-                            {{--                            @endif--}}
+                            @if($errors->has('lop'))
+                                <p style="color: red"> {{$errors->first('lop')}} </p>
+                            @endif
 
                             <div class="form-group">
                                 <label>{{__('Mã NV')}}:</label>
                                 <input type="text" class="form-control" name="code"
-                                       value="{{old('code',isset($giangvien) ? $giangvien['code'] : null)}}">
+                                       value="{{old('code',isset($giangvienId) ? $giangvienId['code'] : null)}}">
                                 @if($errors->has('code'))
                                     <p style="color: red"> {{$errors->first('code')}} </p>
                                 @endif
@@ -44,7 +49,7 @@
                             <div class="form-group">
                                 <label>{{__('Họ Tên')}}:</label>
                                 <input type="text" class="form-control" name="name"
-                                       value="{{old('name',isset($giangvien) ? $giangvien['fullname'] : null)}}">
+                                       value="{{old('name',isset($giangvienId) ? $giangvienId['fullname'] : null)}}">
                                 @if($errors->has('name'))
                                     <p style="color: red"> {{$errors->first('name')}} </p>
                                 @endif
@@ -56,7 +61,7 @@
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="date" class="form-control pull-right" name="birthday"
-                                           value="{{old('birthday',isset($giangvien) ? $giangvien['birthday'] : null)}}">
+                                           value="{{old('birthday',isset($giangvienId) ? $giangvienId['birthday'] : null)}}">
 
                                 </div>
                                 @if($errors->has('ngaysinh'))
@@ -66,7 +71,7 @@
                             <div class="form-group">
                                 <label>{{__('Địa Chỉ')}}:</label>
                                 <input type="text" class="form-control" name="address"
-                                       value="{{old('address',isset($giangvien) ? $giangvien['address'] : null)}}">
+                                       value="{{old('address',isset($giangvienId) ? $giangvienId['address'] : null)}}">
                                 @if($errors->has('address'))
                                     <p style="color: red"> {{$errors->first('address')}} </p>
                                 @endif
@@ -74,7 +79,7 @@
                             <div class="form-group">
                                 <label>{{__('Số Điện Thoại')}}:</label>
                                 <input type="text" class="form-control" name="phone"
-                                       value="{{old('phone',isset($giangvien) ? $giangvien['phone'] : null)}}">
+                                       value="{{old('phone',isset($giangvienId) ? $giangvienId['phone'] : null)}}">
                                 @if($errors->has('phone'))
                                     <p style="color: red"> {{$errors->first('phone')}} </p>
                                 @endif
@@ -82,7 +87,7 @@
                             <div class="form-group">
                                 <label>{{__('Số CMTND')}}:</label>
                                 <input type="text" class="form-control" name="cmtnd"
-                                       value="{{old('cmtnd',isset($giangvien) ? $giangvien['cmtnd'] : null)}}">
+                                       value="{{old('cmtnd',isset($giangvienId) ? $giangvienId['cmtnd'] : null)}}">
                                 @if($errors->has('cmtnd'))
                                     <p style="color: red"> {{$errors->first('cmtnd')}} </p>
                                 @endif
@@ -91,14 +96,14 @@
                                 <label for="exampleInputFile">{{__('Avatar')}}:</label><br/>
                                 <img
                                     src="
-                                        @if($giangvien->image)
-                                            {{asset('backend/upload/giangvien/')}}/{{$giangvien->image}}
-                                        @else
-                                            {{url('noimage.png')}}
-                                        @endif
-                                    "
-                                     width="200px">
-                                <input type="hidden" name="img_curr" value="{{$giangvien->image}}">
+                                        @if($giangvienId->image)
+                                    {{asset('backend/upload/giangvien/')}}/{{$giangvienId->image}}
+                                    @else
+                                    {{url('noimage.png')}}
+                                    @endif
+                                        "
+                                    width="200px">
+                                <input type="hidden" name="img_curr" value="{{$giangvienId->image}}">
                                 <input type="file" name="images">
                                 <p class="help-block">{{ 'Chọn file ảnh từ máy của bạn' }}.</p>
                             </div>

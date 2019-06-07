@@ -17,7 +17,7 @@
                             <h3 class="box-title">{{__('Danh Sách Lớp Học')}}</h3>
                         </div>
                         <div class="col-xs-4 col-sm-6 col-md-2 col-lg-2">
-                            <a href="{{route('backend.course.create')}}"
+                            <a href="{{route('backend.lop.create')}}"
                                class="btn btn-danger">{{__('Thêm Lớp Học')}}</a>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                             @foreach($lops as $lop)
                                 <tr>
                                     <td>{{$lop['id']}}</td>
-                                    <td>{{$lop['couse_id']}}</td>
+                                    <td>{{$lop->course->name}}</td>
                                     <td>{{$lop['name']}}</td>
                                     <td>@if($lop['status'] ==0)
                                             {{__('Kết Thúc')}}
@@ -56,9 +56,9 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{route('backend.course.edit',$lop['id'])}}">{{__('Sửa')}}</a>
+                                        <a href="{{route('backend.lop.edit',$lop['id'])}}">{{__('Sửa')}}</a>
                                     </td>
-                                    <td><a href="{{route('backend.course.destroy',$lop['id'])}}"
+                                    <td><a href="{{route('backend.lop.destroy',$lop['id'])}}"
                                            onclick="xacnhanxoa()">{{__('Xóa')}}</a>
                                     </td>
                                 </tr>

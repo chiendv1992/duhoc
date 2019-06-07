@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Lop\AddRequest;
+use App\Http\Requests\Lop\EditRequest;
+use App\Repositories\Course\CourseRepository;
 use App\Repositories\Lop\LopRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,10 +12,15 @@ use App\Http\Controllers\Controller;
 class LopController extends Controller
 {
     private $lopRepository;
+    private $courseRepository;
 
-    public function __construct(LopRepository $lopRepository)
+    public function __construct(
+        LopRepository $lopRepository,
+        CourseRepository $courseRepository
+    )
     {
         $this->lopRepository = $lopRepository;
+        $this->courseRepository = $courseRepository;
     }
 
     /**
@@ -33,7 +41,8 @@ class LopController extends Controller
      */
     public function create()
     {
-        //
+        $courses = $this->courseRepository->getAll();
+        return view('backend.lop.add',compact('courses'));
     }
 
     /**
@@ -42,20 +51,10 @@ class LopController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddRequest $request)
     {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        $this->lopRepository->save($request);
+        return redirect()->route('backend.lop.list')->with('success','Thêm Thành Công');
     }
 
     /**
@@ -66,7 +65,9 @@ class LopController extends Controller
      */
     public function edit($id)
     {
-        //
+        $courses = $this->courseRepository->getAll();
+        $lopId = $this->lopRepository->findId($id);
+        return view('backend.lop.edit',compact('lopId','courses'));
     }
 
     /**
@@ -76,9 +77,10 @@ class LopController extends Controller
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EditRequest $request, $id)
     {
-        //
+        $this->lopRepository->update($request, $id);
+        return redirect()->route('backend.lop.list')->with('success','Sửa Thành Công');
     }
 
     /**
@@ -89,6 +91,7 @@ class LopController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->lopRepository->delete($id);
+        return redirect()->route('backend.lop.list')->with('success','Xóa Thành Công');
     }
 }

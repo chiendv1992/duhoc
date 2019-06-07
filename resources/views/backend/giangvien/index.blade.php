@@ -66,9 +66,38 @@
                                     <td>{{$teacher['cmtnd']}}</td>
                                     <td><a href="{{route('backend.giangvien.edit',$teacher['id'])}}">{{__('Sửa')}}</a>
                                     </td>
-                                    <td><a href="{{route('backend.giangvien.destroy',$teacher['id'])}}" onclick="xacnhanxoa()">{{__('Xóa')}}</a></td>
-                                    <td><a href="{{route('backend.giangvien.edit',$teacher['id'])}}">{{__('Xem Chi tiết')}}</a></td>
+                                    <td><a href="{{route('backend.giangvien.destroy',$teacher['id'])}}"
+                                           onclick="xacnhanxoa()">{{__('Xóa')}}</a></td>
+                                    <td>
+                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter" onclick="$.del('{{$teacher->id}}')">
+                                            {{__('Xem Chi Tiêt')}}
+                                        </a>
+                                    </td>
                                 </tr>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Chi tiết</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div>
+                                                    <label> name: </label><br>
+                                                    <label> quê quán : 12222222 </label><br>
+                                                    <label> sdt : 123</label>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             @endforeach
                             </tbody>
                         </table>
@@ -80,4 +109,13 @@
         </div>
         <!-- /.row -->
     </section>
+    <script type="text/javascript">
+        $( document ).ready(function() {
+            $.del = function(id){
+                $('#id').val(id);
+                $('#del').modal();
+            }
+        });
+    </script>
+
 @endsection()

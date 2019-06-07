@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\GiangVien\EditRequets;
+use App\Repositories\Lop\LopRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\Customer\CustomerRepository;
@@ -14,9 +15,14 @@ class GiangVienController extends Controller
 {
     private $teacher;
 
-    public function __construct(CustomerRepository $teacher)
+    private $lopRepository;
+
+    public function __construct(
+        CustomerRepository $teacher,
+        LopRepository $lopRepository)
     {
         $this->teacher = $teacher;
+        $this->lopRepository = $lopRepository;
     }
 
     public function index()
@@ -35,20 +41,7 @@ class GiangVienController extends Controller
      */
     public function create()
     {
-        $lops = [
-            [
-                'id' => 1,
-                'name' => 'DH01'
-            ],
-            [
-                'id' => 2,
-                'name' => 'DH02'
-            ],
-            [
-                'id' => 3,
-                'name' => 'DH03'
-            ]
-        ];
+        $lops = $this->lopRepository->getAll();
         return view('backend.giangvien.add', [
             'lops' => $lops
         ]);
@@ -74,7 +67,7 @@ class GiangVienController extends Controller
      */
     public function show($id)
     {
-        //
+        $giangvienId = $this->teacher->findId();
     }
 
     /**
@@ -85,9 +78,10 @@ class GiangVienController extends Controller
      */
     public function edit($id)
     {
-        $giangvien = $this->teacher->findId($id);
+        $lops = $this->lopRepository->getAll();
+        $giangvienId = $this->teacher->findId($id);
 //        dd($giangvien);
-        return view('backend.giangvien.edit',compact('giangvien'));
+        return view('backend.giangvien.edit',compact('giangvienId','lops'));
     }
 
     /**
