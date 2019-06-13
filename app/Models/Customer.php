@@ -25,4 +25,8 @@ class Customer extends Model
         'updated_at'
     ];
     public $timestamps = false;
+
+    public function lop(){
+        return $this->belongsTo('App\Models\Lop','class_id');
+    }
 }

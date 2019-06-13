@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('title')
-    {{__('Thêm Giảng Viên')}}
+    {{__('Sửa Giảng Viên')}}
 @endsection
 
 @section('brecrum')
@@ -26,12 +26,10 @@
                             <select name="lop" class="form-control">
                                 <option value="">--- {{__('Chọn Lớp')}} --</option>
                                 @foreach($lops as $lop)
-                                    <option
-                                        value="{{$lop['id']}}"
-                                        @if (old('lop') == $lop['id'])
-                                            {{ 'selected' }}
-                                         @endif
-                                    >
+                                    <option value="{{$lop['id']}}"
+                                    @if ($hocVienId['class_id'] == $lop['id'])
+                                        {{ 'selected' }}
+                                        @endif>
                                         {{$lop['name']}}
                                     </option>
                                 @endforeach
@@ -43,7 +41,7 @@
                             <div class="form-group">
                                 <label>{{__('Mã NV')}}:</label>
                                 <input type="text" class="form-control" name="code"
-                                       value="{{old('code',isset($customer) ? $customer['code'] : null)}}">
+                                       value="{{old('code',isset($hocVienId) ? $hocVienId['code'] : null)}}">
                                 @if($errors->has('code'))
                                     <p style="color: red"> {{$errors->first('code')}} </p>
                                 @endif
@@ -51,7 +49,7 @@
                             <div class="form-group">
                                 <label>{{__('Họ Tên')}}:</label>
                                 <input type="text" class="form-control" name="name"
-                                       value="{{old('name',isset($customer) ? $customer['fullname'] : null)}}">
+                                       value="{{old('name',isset($hocVienId) ? $hocVienId['fullname'] : null)}}">
                                 @if($errors->has('name'))
                                     <p style="color: red"> {{$errors->first('name')}} </p>
                                 @endif
@@ -63,7 +61,7 @@
                                         <i class="fa fa-calendar"></i>
                                     </div>
                                     <input type="date" class="form-control pull-right" name="birthday"
-                                           value="{{old('birthday',isset($customer) ? $customer['birthday'] : null)}}">
+                                           value="{{old('birthday',isset($hocVienId) ? $hocVienId['birthday'] : null)}}">
 
                                 </div>
                                 @if($errors->has('birthday'))
@@ -73,7 +71,7 @@
                             <div class="form-group">
                                 <label>{{__('Địa Chỉ')}}:</label>
                                 <input type="text" class="form-control" name="address"
-                                       value="{{old('address',isset($customer) ? $customer['address'] : null)}}">
+                                       value="{{old('address',isset($hocVienId) ? $hocVienId['address'] : null)}}">
                                 @if($errors->has('address'))
                                     <p style="color: red"> {{$errors->first('address')}} </p>
                                 @endif
@@ -81,7 +79,7 @@
                             <div class="form-group">
                                 <label>{{__('Số Điện Thoại')}}:</label>
                                 <input type="text" class="form-control" name="phone"
-                                       value="{{old('phone',isset($customer) ? $customer['phone'] : null)}}">
+                                       value="{{old('phone',isset($hocVienId) ? $hocVienId['phone'] : null)}}">
                                 @if($errors->has('phone'))
                                     <p style="color: red"> {{$errors->first('phone')}} </p>
                                 @endif
@@ -89,20 +87,30 @@
                             <div class="form-group">
                                 <label>{{__('Số CMTND')}}:</label>
                                 <input type="text" class="form-control" name="cmtnd"
-                                       value="{{old('cmtnd',isset($customer) ? $customer['cmtnd'] : null)}}">
+                                       value="{{old('cmtnd',isset($hocVienId) ? $hocVienId['cmtnd'] : null)}}">
                                 @if($errors->has('cmtnd'))
                                     <p style="color: red"> {{$errors->first('cmtnd')}} </p>
                                 @endif
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputFile">{{__('Avatar')}}</label>
+                                <label for="exampleInputFile">{{__('Avatar')}}:</label><br/>
+                                <img
+                                    src="
+                                        @if($hocVienId->image)
+                                    {{asset('backend/upload/customer/')}}/{{$hocVienId->image}}
+                                    @else
+                                    {{url('noimage.png')}}
+                                    @endif
+                                        "
+                                    width="200px">
+                                <input type="hidden" name="img_curr" value="{{$hocVienId->image}}">
                                 <input type="file" name="images">
                                 <p class="help-block">{{ 'Chọn file ảnh từ máy của bạn' }}.</p>
                             </div>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">{{__('Thêm Giảng Viên')}}</button>
+                            <button type="submit" class="btn btn-primary">{{__('Sửa Học Viên')}}</button>
                         </div>
                     </form>
                 </div>

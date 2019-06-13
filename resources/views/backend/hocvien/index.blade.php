@@ -1,9 +1,9 @@
 @extends('backend.master')
 @section('title')
-    {{__('D/S Giảng Viên')}}
+    {{__('D/S Học Viên')}}
 @endsection
 @section('brecrum')
-    {{__('Giảng Viên')}}
+    {{__('Học Viên')}}
 @endsection
 @section('content')
     <section class="content">
@@ -14,11 +14,11 @@
                 <div class="box box-primary">
                     <div class="box-header col-xs-12 col-sm-12col-md-12 col-lg-12 ">
                         <div class="col-xs-8 col-sm-6 col-md-10 col-lg-10">
-                            <h3 class="box-title">{{__('Danh Sách Giảng Viên')}}</h3>
+                            <h3 class="box-title">{{__('Danh Sách Học Viên')}}</h3>
                         </div>
                         <div class="col-xs-4 col-sm-6 col-md-2 col-lg-2">
-                            <a href="{{route('backend.giangvien.create')}}"
-                               class="btn btn-danger">{{__('Thêm Giảng Viên')}}</a>
+                            <a href="{{route('backend.hocvien.create')}}"
+                               class="btn btn-danger">{{__('Thêm Học Viên')}}</a>
                         </div>
                     </div>
                     <div class="box-header col-xs-12 col-sm-12col-md-12 col-lg-12 ">
@@ -34,10 +34,9 @@
                             <thead>
                             <tr>
                                 <th>{{__('STT')}}</th>
-                                <th>{{__('Lớp')}}</th>
-
-                                <th>{{__('Mã GV')}}</th>
-                                <th>{{__('Tên Giảng Viên')}}</th>
+                                <th>{{__('Lớp Học')}}</th>
+                                <th>{{__('Mã Học Viên')}}</th>
+                                <th>{{__('Tên Học Viên')}}</th>
                                 <th>{{__('Avatar')}}</th>
                                 <th>{{__('Ngày Sinh')}}</th>
                                 <th>{{__('Địa Chỉ')}}</th>
@@ -49,30 +48,30 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($giangvien as $teacher)
+                            @foreach($hocvien as $hv)
                                 <tr>
-                                    <td>{{$teacher['id']}}</td>
-                                    <td>{{$teacher->lop->name}}</td>
-                                    <td>{{$teacher['code']}}</td>
-                                    <td>{{$teacher['fullname']}}</td>
+                                    <td>{{$hv['id']}}</td>
+                                    <td>{{$hv->lop->name}}</td>
+                                    <td>{{$hv['code']}}</td>
+                                    <td>{{$hv['fullname']}}</td>
                                     <td>
-                                        @if($teacher['image'] != null)
-                                            <img src="{{url('backend/upload/customer')}}/{{$teacher['image']}}" alt=""
+                                        @if($hv['image'] != null)
+                                            <img src="{{url('backend/upload/customer')}}/{{$hv['image']}}" alt=""
                                                  width="100px">
                                         @else
                                             <img src="{{url('noimage.png')}}" alt="" width="100px">
                                         @endif
                                     </td>
-                                    <td>{{$teacher['birthday']}}</td>
-                                    <td>{{$teacher['address']}}</td>
-                                    <td>{{$teacher['phone']}}</td>
-                                    <td>{{$teacher['cmtnd']}}</td>
-                                    <td><a href="{{route('backend.giangvien.edit',$teacher['id'])}}">{{__('Sửa')}}</a>
+                                    <td>{{$hv['birthday']}}</td>
+                                    <td>{{$hv['address']}}</td>
+                                    <td>{{$hv['phone']}}</td>
+                                    <td>{{$hv['cmtnd']}}</td>
+                                    <td><a href="{{route('backend.hocvien.edit',$hv['id'])}}">{{__('Sửa')}}</a>
                                     </td>
-                                    <td><a href="{{route('backend.giangvien.destroy',$teacher['id'])}}"
+                                    <td><a href="{{route('backend.hocvien.destroy',$hv['id'])}}"
                                            onclick="xacnhanxoa()">{{__('Xóa')}}</a></td>
                                     <td>
-                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter" onclick="$.del('{{$teacher->id}}')">
+                                        <a href="#" data-toggle="modal" data-target="#exampleModalCenter" onclick="$.del('{{$hv->id}}')">
                                             {{__('Xem Chi Tiêt')}}
                                         </a>
                                     </td>

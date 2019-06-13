@@ -13,6 +13,8 @@ use App\Http\Requests\GiangVien\AddRequets;
 
 class GiangVienController extends Controller
 {
+
+    const TYPE_TEACHER = 1;
     private $teacher;
 
     private $lopRepository;
@@ -27,7 +29,7 @@ class GiangVienController extends Controller
 
     public function index()
     {
-        $giangvien = $this->teacher->getAll($this->teacher::TYPE_TEACHER);
+        $giangvien = $this->teacher->getAll(self::TYPE_TEACHER);
 
         return view('backend.giangvien.index', [
             'giangvien' => $giangvien
@@ -55,19 +57,8 @@ class GiangVienController extends Controller
      */
     public function store(AddRequets $request)
     {
-        $this->teacher->save($request);
+        $this->teacher->save($request, self::TYPE_TEACHER);
         return redirect()->route('backend.giangvien.list')->with("success", "Thêm mới giảng viên thành công!");
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $giangvienId = $this->teacher->findId();
     }
 
     /**
@@ -80,7 +71,6 @@ class GiangVienController extends Controller
     {
         $lops = $this->lopRepository->getAll();
         $giangvienId = $this->teacher->findId($id);
-//        dd($giangvien);
         return view('backend.giangvien.edit',compact('giangvienId','lops'));
     }
 
@@ -93,7 +83,7 @@ class GiangVienController extends Controller
      */
     public function update(EditRequets $request, $id)
     {
-        $this->teacher->updateCustomer($request, $id);
+        $this->teacher->updateCustomer($request, $id, self::TYPE_TEACHER);
         return redirect()->route('backend.giangvien.list')->with("success", "Sửa giảng viên thành công!");
     }
 

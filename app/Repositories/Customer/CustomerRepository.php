@@ -8,9 +8,8 @@ use File;
 
 class CustomerRepository extends BaseRepository implements CustomerRepositoryInterface
 {
-    const TYPE_TEACHER = 1;
-    const TYPE_HOCVIEN = 0;
-    const PATH_IMAGE_GIANGVIEN = 'backend/upload/giangvien';
+
+    const PATH_IMAGE_CUSTOMER = 'backend/upload/customer';
 
     protected $model;
 
@@ -30,15 +29,15 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
     /**
      * @param $data
      */
-    public function save($data){
+    public function save($data, $type){
         $file_name ='';
         // lấy tên cua image
         $file_name = time().$data->file('images')->getClientOriginalName();
         // cop ảnh luu vao ht
-        $image = $data->file('images')->move(self::PATH_IMAGE_GIANGVIEN, $file_name);
+        $image = $data->file('images')->move(self::PATH_IMAGE_CUSTOMER, $file_name);
 
         $customer = new Customer();
-        $customer->class_id = 1;
+        $customer->class_id = $data->lop;
         $customer->pass = 1;
         $customer->fullname = $data->name;
         $customer->code = $data->code;
@@ -48,19 +47,19 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
         $customer->image = $file_name;
         $customer->status = 1;
         $customer->birthday = $data->birthday;
-        $customer->type = self::TYPE_TEACHER;
+        $customer->type = $type;
         $customer->save();
     }
 
-   	public function updateCustomer($data, $id)
+   	public function updateCustomer($data, $id, $type)
     {
         $customer = Customer::find($id);
-        $img_curr=self::PATH_IMAGE_GIANGVIEN.$data->input('img_curr');
+        $img_curr=self::PATH_IMAGE_CUSTOMER.$data->input('img_curr');
         if (!empty($data->file('images')))
         {
             $file_name = $data->file('images')->getClientOriginalName();
             $customer->image=$file_name;
-            $data->file('images')->move(self::PATH_IMAGE_GIANGVIEN,$file_name);
+            $data->file('images')->move(self::PATH_IMAGE_CUSTOMER,$file_name);
             if (File::exists($img_curr)) {
                 File::delete($img_curr);
             }
@@ -70,7 +69,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
             $file_name = $data->input('img_curr');
         }
 
-        $customer->class_id = 1;
+        $customer->class_id = $data->lop;
         $customer->pass = 1;
         $customer->fullname = $data->name;
         $customer->code = $data->code;
@@ -80,7 +79,7 @@ class CustomerRepository extends BaseRepository implements CustomerRepositoryInt
         $customer->image = $file_name;
         $customer->status = 1;
         $customer->birthday = $data->birthday;
-        $customer->type = self::TYPE_TEACHER;
+        $customer->type = $type;
 
         $customer->save();
    	}

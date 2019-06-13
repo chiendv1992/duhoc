@@ -14,4 +14,8 @@ class Lop extends Model
     {
         return $this->belongsTo('App\Models\Course','couse_id');
     }
+
+    public function customer(){
+        return $this->hasMany('App\Models\Customer','id');
+    }
 }

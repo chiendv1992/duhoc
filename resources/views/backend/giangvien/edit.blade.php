@@ -64,8 +64,8 @@
                                            value="{{old('birthday',isset($giangvienId) ? $giangvienId['birthday'] : null)}}">
 
                                 </div>
-                                @if($errors->has('ngaysinh'))
-                                    <p style="color: red"> {{$errors->first('ngaysinh')}} </p>
+                                @if($errors->has('birthday'))
+                                    <p style="color: red"> {{$errors->first('birthday')}} </p>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -97,7 +97,7 @@
                                 <img
                                     src="
                                         @if($giangvienId->image)
-                                    {{asset('backend/upload/giangvien/')}}/{{$giangvienId->image}}
+                                    {{asset('backend/upload/customer/')}}/{{$giangvienId->image}}
                                     @else
                                     {{url('noimage.png')}}
                                     @endif

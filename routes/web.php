@@ -60,6 +60,17 @@ Route::group(['prefix' => 'giangvien'], function () {
 
     Route::get('delete/{id}', ['as' => 'backend.giangvien.destroy', 'uses' => 'Backend\GiangVienController@destroy']);
 });
+Route::group(['prefix' => 'hocvien'], function () {
+    Route::get('index', ['as' => 'backend.hocvien.list', 'uses' => 'Backend\HocVienController@index']);
+
+    Route::get('create', ['as' => 'backend.hocvien.create', 'uses' => 'Backend\HocVienController@create']);
+    Route::post('create', ['as' => 'backend.hocvien.store', 'uses' => 'Backend\HocVienController@store']);
+
+    Route::get('edit/{id}', ['as' => 'backend.hocvien.edit', 'uses' => 'Backend\HocVienController@edit']);
+    Route::post('edit/{id}', ['as' => 'backend.hocvien.update', 'uses' => 'Backend\HocVienController@update']);
+
+    Route::get('delete/{id}', ['as' => 'backend.hocvien.destroy', 'uses' => 'Backend\HocVienController@destroy']);
+});
 Route::group(['prefix' => 'category'], function () {
     Route::get('index', ['as' => 'backend.category.list', 'uses' => 'Backend\GiangVienController@index']);
 

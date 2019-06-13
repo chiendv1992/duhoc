@@ -1,11 +1,11 @@
 @extends('backend.master')
 
 @section('title')
-    {{__('Thêm Giảng Viên')}}
+    {{__('Thêm Học Viên')}}
 @endsection
 
 @section('brecrum')
-    {{__('Giảng Viên')}}
+    {{__('Học Viên')}}
 @endsection
 
 @section('content')
@@ -17,7 +17,7 @@
             <div class="col-md-8">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">{{__('Thêm Giảng Viên')}}</h3>
+                        <h3 class="box-title">{{__('Thêm Học Viên')}}</h3>
                     </div>
                     <form action="" multiple="" method="post" enctype="multipart/form-data">
                         {{csrf_field()}}
@@ -28,9 +28,9 @@
                                 @foreach($lops as $lop)
                                     <option
                                         value="{{$lop['id']}}"
-                                        @if (old('lop') == $lop['id'])
-                                            {{ 'selected' }}
-                                         @endif
+                                    @if (old('lop') == $lop['id'])
+                                        {{ 'selected' }}
+                                        @endif
                                     >
                                         {{$lop['name']}}
                                     </option>
@@ -102,7 +102,7 @@
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
-                            <button type="submit" class="btn btn-primary">{{__('Thêm Giảng Viên')}}</button>
+                            <button type="submit" class="btn btn-primary">{{__('Thêm Học Viên')}}</button>
                         </div>
                     </form>
                 </div>
