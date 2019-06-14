@@ -2,11 +2,18 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Http\Requests\Category\AddRequets;
+use App\Repositories\Category\CategoryRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller
 {
+    private $cateRepository;
+
+    public function __construct(CategoryRepository $cateRepository){
+        $this->cateRepository = $cateRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $category = $this->cateRepository->getList();
+        return view('backend.category.index',compact('category'));
     }
 
     /**
@@ -24,7 +32,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $parent = $this->cateRepository->getSelect();
+        return view('backend.category.add',compact('parent'));
     }
 
     /**
@@ -33,9 +42,10 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AddRequets $request)
     {
-        //
+        $this->cateRepository->save($request);
+        return redirect()->route('backend.category.list')->with('success','Thêm Thành Công');
     }
 
     /**
@@ -57,7 +67,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $parent = $this->cateRepository->getSelect();
+        $category_id = $this->cateRepository->findId($id);
+        return view('backend.category.edit',compact('category_id','parent'));
     }
 
     /**
@@ -69,7 +81,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->cateRepository->update($request, $id);
+        return redirect()->route('backend.category.list')->with('success','Sửa Thành Công');
     }
 
     /**
@@ -80,6 +93,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->cateRepository->delete($id);
+        return redirect()->route('backend.category.list')->with('success','Xóa Thành Công');
     }
 }

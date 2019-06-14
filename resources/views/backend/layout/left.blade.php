@@ -69,9 +69,24 @@
                 </a>
             </li>
             <li class="treeview">
-                <a href="{{route('backend.giangvien.list')}}">
-                    <i class="fa fa-folder"></i> <span>{{__('Quản Lý Tin Tức')}}</span></i>
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>{{__('Quản Lý Tin Tức')}}</span>
+                    <span class="pull-right-container">
+                        <span class="label label-primary pull-right">2</span>
+                    </span>
                 </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="{{route('backend.category.list')}}">
+                            <i class="fa fa-circle-o"></i> <span>{{__('Category')}}</span></i>
+                        </a>
+                        <a href="{{route('backend.category.list')}}">
+                            <i class="fa fa-circle-o"></i> <span>{{__('Tin Tức')}}</span></i>
+                        </a>
+                    </li>
+
+                </ul>
             </li>            
             
             <li><a href="{{route('backend.giangvien.list')}}"><i class="fa fa-book"></i> <span>{{__('Quản Lý Banner')}}</span></a></li>

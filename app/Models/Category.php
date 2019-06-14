@@ -8,7 +8,7 @@ class Category extends Model
 {
    	protected $table='category';
 	protected $primaryKey = 'id';
-	protected $fillable = ['id','name','status','created_at','updated_at'];
+	protected $fillable = ['id','title','name','status','parent_id', 'created_at','updated_at'];
 	public $timestamps = false; 
 	public function news()
 	{

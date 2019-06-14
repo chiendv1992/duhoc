@@ -3,7 +3,9 @@ namespace App\Repositories\Category;
 
 interface CategoryRepositoryInterface
 {
-    public function getAll();
+    public function getList();
+
+    public function getSelect();
 
     public function save($data);
 

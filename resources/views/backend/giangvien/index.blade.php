@@ -35,7 +35,6 @@
                             <tr>
                                 <th>{{__('STT')}}</th>
                                 <th>{{__('Lớp')}}</th>
-
                                 <th>{{__('Mã GV')}}</th>
                                 <th>{{__('Tên Giảng Viên')}}</th>
                                 <th>{{__('Avatar')}}</th>
