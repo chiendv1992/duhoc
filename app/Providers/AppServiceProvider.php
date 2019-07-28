@@ -28,7 +28,9 @@ class AppServiceProvider extends ServiceProvider
             'App\Repositories\Course\CourseRepositoryInterface',
             'App\Repositories\Course\CourseRepository',
             'App\Repositories\Customer\CustomerRepositoryInterface',
-            'App\Repositories\Customer\CustomerRepository'
+            'App\Repositories\Customer\CustomerRepository',
+            'App\Repositories\Category\CategoryRepositoryInterface',
+            'App\Repositories\Category\CategoryRepository'
         );
     }
 }

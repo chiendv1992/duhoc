@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Category\AddRequets;
 use App\Repositories\Category\CategoryRepository;
+use App\Repositories\Category\CategoryRepositoryInterface;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -22,6 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = $this->cateRepository->getList();
+        dd($category);
         return view('backend.category.index',compact('category'));
     }
 
