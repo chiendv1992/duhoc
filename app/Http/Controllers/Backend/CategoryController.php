@@ -23,7 +23,7 @@ class CategoryController extends Controller
     public function index()
     {
         $category = $this->cateRepository->getList();
-        dd($category);
+//        dd($category);
         return view('backend.category.index',compact('category'));
     }
 

@@ -36,11 +36,14 @@
                                 <select name="status" class="form-control">
                                     <option value="">{{__('-- Chọn Trạng Thái --')}}</option>
                                     <option
-                                        value="0" @if (old('status') == "0") {{ 'selected' }} @endif>{{__('Kết Thúc')}}</option>
+                                        value="0" @if (old('status') == "0") {{ 'selected' }} @endif>
+                                        {{__('Enable')}}
+                                    </option>
                                     <option
-                                        value="1" @if (old('status') == "1") {{ 'selected' }} @endif>{{__('Chưa Kết Thúc')}}</option>
-                                    <option
-                                        value="2" @if (old('status') == "2") {{ 'selected' }} @endif>{{__('Sắp Bắt Đầu')}}</option>
+                                        value="1" @if (old('status') == "1") {{ 'selected' }} @endif>
+                                        {{__('Disable')}}
+                                    </option>
+
                                 </select>
                             </div>
                             @if($errors->has('status'))

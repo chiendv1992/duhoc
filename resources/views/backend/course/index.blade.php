@@ -46,11 +46,9 @@
                                     <td>{{$khoahoc['id']}}</td>
                                     <td>{{$khoahoc['name']}}</td>
                                     <td>@if($khoahoc['status'] ==0)
-                                            {{__('Kết Thúc')}}
+                                            {{__('Enable')}}
                                         @elseif($khoahoc['status'] ==1)
-                                            {{__('Đang Học') }}
-                                        @else
-                                            {{__('Sắp Bắt đầu')}}
+                                            {{__('Disable') }}
                                         @endif
                                     </td>
                                     <td>

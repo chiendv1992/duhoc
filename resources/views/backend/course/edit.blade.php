@@ -37,17 +37,12 @@
                                     <option value="0"
                                     @if ($courseId['status'] == "0") {{ 'selected' }} @endif
                                     >
-                                        {{__('Kết Thúc')}}
+                                        {{__('Enable')}}
                                     </option>
                                     <option value="1"
                                     @if ($courseId['status'] == "1") {{ 'selected' }} @endif
                                     >
-                                        {{__('Chưa Kết Thúc')}}
-                                    </option>
-                                    <option value="2"
-                                    @if ($courseId['status'] == "2") {{ 'selected' }} @endif
-                                    >
-                                        {{__('Sắp Bắt Đầu')}}
+                                        {{__('Disable')}}
                                     </option>
                                 </select>
                             </div>
